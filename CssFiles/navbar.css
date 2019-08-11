@@ -1,4 +1,4 @@
-img {
+.navbar-brand>img {
     width: 100px;
     height: 100px;
 }
@@ -10,3 +10,7 @@ li {
 .fab { color: white; }
 
 .fas { color: white; }
+
+body {
+    padding-top: 250px;
+}
