@@ -23,6 +23,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 const ENV = require('dotenv');
 ENV.config();
 
@@ -78,25 +79,37 @@ app.post('/register', [
                     return val;
                 }
             }).withMessage('Passwords must match')
-], (req, res) => {
-    let user = new User();
-    
+], (req, res) => {    
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
     } else {
-        user.email = req.body.email;
-        user.password = req.body.password;
+        let newUser = new User();
 
-        user.save((err) => {
-            if(err){
-                console.log(err);
-            } else {
-                res.redirect('/');
-            }
+        newUser.email = req.body.email;
+        newUser.password = req.body.password;
+
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if(err) {
+                    console.log(err);
+                }
+                newUser.password = hash;
+                newUser.save((err) => {
+                    if(err){
+                        console.log(err);
+                    } else {
+                        res.redirect('/login');
+                    }
+                });
+            });
         });
     }
 });
+
+app.get('/login', (req, res) => {
+    res.sendFile('sign-in.html', {root: path.join(__dirname, './HtmlFiles')});
+  });
 
 // App Listen
 if (module === require.main) {
