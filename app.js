@@ -9,6 +9,14 @@ app.get('/', (req, res) => {
   res.sendFile('home.html', {root: path.join(__dirname, './HtmlFiles')});
 });
 
+app.get('/login', (req, res) => {
+  res.sendFile('sign-in.html', {root: path.join(__dirname, './HtmlFiles')});
+});
+
+app.get('/about', (req, res) => {
+  res.sendFile('about.html', {root: path.join(__dirname, './HtmlFiles')});
+});
+
 app.get('/plated-desserts', (req, res) => {
   res.sendFile('plated-desserts.html', {root: path.join(__dirname, './HtmlFiles')});
 });
