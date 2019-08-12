@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../CssFiles/navbar.css" />
     <link rel="stylesheet" type="text/css" href="../CssFiles/footer.css" />
     <link rel="stylesheet" type="text/css" href="../CssFiles/recipe.css" />
+    <link rel="stylesheet" type="text/css" href="../CssFiles/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -15,76 +16,99 @@
     <title>Recipes</title>
 </head>
 <body>
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-            <a class="navbar-brand" href="#">
-            <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/62737433-9fa7-466d-bcfb-1645b65b1385_m.png">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- <div id="container"> -->
+        <!-- <div id="main"> -->
+            <!-- Nav Bar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+                    <a class="navbar-brand" href="#">
+                    <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/62737433-9fa7-466d-bcfb-1645b65b1385_m.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        Recipes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/amuse-bouche">Amuse-Bouche</a>
-                        <a class="dropdown-item" href="/appetizers">Appetizers</a>
-                        <a class="dropdown-item" href="/plated-desserts">Plated Desserts</a>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                Recipes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/amuse-bouche">Amuse-Bouche</a>
+                                <a class="dropdown-item" href="/appetizers">Appetizers</a>
+                                <a class="dropdown-item" href="/plated-desserts">Plated Desserts</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link fas fa-search" style="font-size: 80%; padding: 18px 0px 0px 6px"></a>
+                        </li>
+                    </ul>
+
+                    <ul class="inline navbar-nav mr-right mr-2">
+                        <li>
+                            <a class="fab fa-facebook-f mr-2" href="https://www.facebook.com/BrunosKitchen"></a>
+                        </li>
+                        <li>
+                            <a class="fab fa-twitter mr-2" href="https://www.twitter.com/brunoalbouze"></a>
+                        </li>
+                        <li>
+                            <a class="fab fa-youtube mr-2" href="https://www.youtube.com/user/BrunoAlbouze/videos"></a>
+                        </li>
+                        <li>
+                            <a class="fab fa-pinterest-p mr-2" href="https://www.pinterest.com/brunoalbouze"></a>
+                        </li>
+                        <li>
+                            <a class="fab fa-instagram mr-2" href="https://instagram.com/brunoalbouze"></a>
+                        </li>
+                    </ul>
+
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Sign in</a>
+                </div>
+            </nav>
+            <!-- Nav Bar -->
+
+            <!-- Jumbotron -->
+            <div class="jumbotron">
+                <div class="container-fluid text-center">
+                    <h1 class="display-1">Recipes</h1>
+                </div>
+            </div>
+            <!-- Jumbotron -->
+
+            <!-- Recipe -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-1 text-center">
+                        <span class="month-posted">FEB</span>
+                        <span class="day-posted">03</span>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link fas fa-search" style="font-size: 80%; padding: 18px 0px 0px 6px"></a>
-                </li>
-            </ul>
+                    <div class="col-md-10">
+                        <h1>FERRERO FANTASIA</h1>
+                        <hr>
+                        <div class="videowrapper">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/juQk93kChpA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Recipe -->
 
-            <ul class="inline navbar-nav mr-right mr-2">
-                <li>
-                    <a class="fab fa-facebook-f mr-2" href="https://www.facebook.com/BrunosKitchen"></a>
-                </li>
-                <li>
-                    <a class="fab fa-twitter mr-2" href="https://www.twitter.com/brunoalbouze"></a>
-                </li>
-                <li>
-                    <a class="fab fa-youtube mr-2" href="https://www.youtube.com/user/BrunoAlbouze/videos"></a>
-                </li>
-                <li>
-                    <a class="fab fa-pinterest-p mr-2" href="https://www.pinterest.com/brunoalbouze"></a>
-                </li>
-                <li>
-                    <a class="fab fa-instagram mr-2" href="https://instagram.com/brunoalbouze"></a>
-                </li>
-            </ul>
-
-            <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Sign in</a>
-        </div>
-    </nav>
-    <!-- Nav Bar -->
-
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <div class="container text-center">
-            <h1 class="display-1">Recipes</h1>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer id="sticky-footer" class="py-4 bg-dark text-white">
-        <div class="container text-center">
-            <p>This website is based loosely off of this linked 
-                <a href="https://www.brunoskitchen.net">webpage.</a>
-            </p>
-        </div>
-    </footer>
-    <!-- Footer -->
+            <!-- Footer -->
+            <footer id="footer" class="py-4 bg-dark text-white">
+                <div class="container-fluid text-center">
+                    <p>This website is based loosely off of this linked 
+                        <a href="https://www.brunoskitchen.net">webpage.</a>
+                    </p>
+                </div>
+            </footer>
+            <!-- Footer -->
+        <!-- </div> -->
+    <!-- </div> -->
 </body>
 </html>
