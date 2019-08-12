@@ -24,8 +24,49 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const ENV = require('dotenv');
 ENV.config();
+
+// Passport config
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+      User.findOne({ username: username }, function (err, user) {
+        console.log("Verification function called");
+        if (err) { return done(err); }
+        console.log("No err");
+        if (!user) { 
+            console.log("No user");
+            return done(null, false, { message: 'No user found' }); 
+        }
+        
+        bcrypt.compare(password, user.password, function(err, isMatch) {
+            if(err) throw err;
+            console.log("No pass error");
+
+            if(isMatch) {
+                console.log("Pass match");
+                return done(null, user);
+            } else {
+                console.log("Pass no match");
+                return done(null, false); 
+            }
+        });
+      });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    done(err, user);
+});
+
+// Bring in models
+let User = require('./models/user');
 
 // Init app
 const app = express();
@@ -34,13 +75,14 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Connect to mongodb
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_DB_URL, { useNewUrlParser: true });
 let db = mongoose.connection;
-
-// Bring in models
-let User = require('./models/user');
 
 // Connect to db and check for errors
 db.once('open', () => {
@@ -86,7 +128,7 @@ app.post('/register', [
     } else {
         let newUser = new User();
 
-        newUser.email = req.body.email;
+        newUser.username = req.body.email;
         newUser.password = req.body.password;
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -109,7 +151,11 @@ app.post('/register', [
 
 app.get('/login', (req, res) => {
     res.sendFile('sign-in.html', {root: path.join(__dirname, './HtmlFiles')});
-  });
+});
+
+app.post('/login', 
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }),
+);
 
 // App Listen
 if (module === require.main) {
