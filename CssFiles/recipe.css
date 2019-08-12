@@ -45,3 +45,11 @@ h1 {
     height: 100%;
     width: 100%;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+p {
+    font-size: 19px;
+}
