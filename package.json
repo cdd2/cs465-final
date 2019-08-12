@@ -4,12 +4,16 @@
   "description": "A modified version of Bruno Albouze's cooking website with some improvement.",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-validator": "^6.1.1",
     "init": "^0.1.2",
     "mongodb": "^3.3.0-beta2",
     "mongoose": "^5.6.9",
-    "npm": "^6.10.3"
+    "npm": "^6.10.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.0.0"

@@ -22,13 +22,14 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 const ENV = require('dotenv');
 ENV.config();
 
 // Init app
 const app = express();
 
-// Middleware
+// Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -49,7 +50,7 @@ db.on('error', (err) => {
     console.log(err);
 });
 
-// Add Route
+// Routes
 app.get('/', (req, res) => {
     User.find({}, (err, users) => {
         if(err) {
@@ -65,18 +66,36 @@ app.get('/register', (req, res) => {
     res.sendFile('register.html', {root: path.join(__dirname, './HtmlFiles')});
   });
 
-app.post('/register', (req, res) => {
+app.post('/register', [
+        check('email')
+            .isEmail().withMessage('Must be a valid email'),
+        check('password')
+            .isLength({ min: 5 }).withMessage('Must be at least 5 chars long')
+            .custom((val, {req, loc, path}) => {
+                if(val !== req.body.password2) {
+                    throw new Error('Passwords don\'t match');
+                } else {
+                    return val;
+                }
+            }).withMessage('Passwords must match')
+], (req, res) => {
     let user = new User();
-    user.email = req.body.email;
-    user.password = req.body.password;
+    
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    } else {
+        user.email = req.body.email;
+        user.password = req.body.password;
 
-    user.save((err) => {
-        if(err){
-            console.log(err);
-        } else {
-            res.redirect('/');
-        }
-    });
+        user.save((err) => {
+            if(err){
+                console.log(err);
+            } else {
+                res.redirect('/');
+            }
+        });
+    }
 });
 
 // App Listen
