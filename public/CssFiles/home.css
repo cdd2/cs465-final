@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(61, 60, 60) !important;
+}
+
+.jumbotron {
+    background-color: rgb(61, 60, 60) !important;
+    padding: 20px !important;
+    margin: 0px !important;
+}

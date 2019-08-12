@@ -1,0 +1,25 @@
+.navbar-brand>img {
+    width: 100px;
+    height: 100px;
+}
+
+li {
+    font-size: 150%;
+}
+
+.fab { color: white; }
+
+.fas { color: white; }
+
+body {
+    padding-top: 118px;
+}
+
+nav {
+    background-color: rgb(127, 168, 62);
+}
+
+.btn {
+    color: white !important;
+    border-color: white !important;
+}
