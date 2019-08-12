@@ -18,3 +18,8 @@ body {
 nav {
     background-color: rgb(127, 168, 62);
 }
+
+.btn {
+    color: white !important;
+    border-color: white !important;
+}
