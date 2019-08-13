@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../CssFiles/recipe.css" />
     <link rel="stylesheet" type="text/css" href="../CssFiles/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -147,21 +148,7 @@
                     <hr>
                     <h1>Discussion</h1>
                     <hr>
-
-                    <div class="comments">
-                        <div class="media">
-                            <a class="media-left" href="#">
-                                <img src="http://lorempixel.com/40/40/people/1/">
-                            </a>
-                            <div class="media-body">
-                            <p class="float-right"><small>5 days ago</small></p>
-
-                            <h4 class="media-heading user_name">Baltej Singh</h4>
-                            Wow! this is really great.
-                            </div>
-                        </div>
-                    </div>
-
+                    <div class="comments" id="comments"></div>
                     <div class="newPost" id="newPost"></div>
                 </div>
             </div>
@@ -191,10 +178,39 @@
         // Add form to make new post
         $('#newPost').html('' +
             '<form method="post">' +
-                '<label for="postContent" class="sr-only">Comment</label><textarea name="postContent" id="postContent" cols="100" rows="3" class="autoExpand form-control"></textarea>' +
+                '<label for="postContent" class="sr-only">Comment</label><textarea name="postContent" id="postContent" cols="100" rows="3" class="autoExpand form-control" placeholder="Leave a public comment."></textarea>' +
                 '<button class="btn btn-sm btn-secondary" type="submit">Post Comment</button>' +
             '</form>');
     }
+</script>
+
+<script id="addComments" type="text/javascript">
+    {{ #objectComments }}
+        {{ #booleanEmpty }}
+            {{ #arrayComments }}
+            console.log({{timestamp}});
+            console.log('{{{username}}}');
+            
+            var relativeTimePosted = moment({{ timestamp }}).fromNow();
+
+            $('#comments').append('' +
+                '<div class="media">' +
+                    '<a class="media-left" href="#">' +
+                        '<img src="http://lorempixel.com/40/40/people/1/">' +
+                    '</a>' +
+                    '<div class="media-body">' +
+                    '<p class="float-right"><small>' + relativeTimePosted + '</small></p>' +
+                    '<h4 class="media-heading user_name">{{{ username }}}</h4>' +
+                    '{{{ comment }}}' +
+                    '</div>' +
+                '</div>');
+            {{ /arrayComments }}
+        {{ /booleanEmpty }}
+
+        {{ ^booleanEmpty }}
+            $('#comments').append('<p>No comments posted yet.</p>');
+        {{ /booleanEmpty }}
+    {{ /objectComments }}
 </script>
 
 </html>

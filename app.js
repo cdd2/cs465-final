@@ -84,7 +84,7 @@ let db = mongoose.connection;
 
 // Connect to db and check for errors
 db.once('open', () => {
-  console.log('Connected');
+  console.log('Connected to database');
 });
 
 db.on('error', (err) => {
@@ -175,21 +175,32 @@ app.get('/about', (req, res) => {
       'objectUser': res.locals.user
     }));
 
-  res.end();
+    res.end();
   });
 });
 
 app.get('/plated-desserts', (req, res) => {
-  fs.readFile('./HtmlFiles/plated-desserts.html', function(err, data) {
-    res.writeHead(200, {
-      'Content-Type': 'text/html'
-    });
-
-    res.write(mustache.render(data.toString(), {
-      'objectUser': res.locals.user
-    }));
-
-  res.end();
+  Comment.find({}, (err, comments) => {
+    if(err){
+      console.log(err);
+    } else {
+      fs.readFile('./HtmlFiles/plated-desserts.html', function(err, data) {
+        res.writeHead(200, {
+          'Content-Type': 'text/html'
+        });
+        
+        let sortedComments = comments.sort((a, b) => (a.timestamp > b.timestamp) ? -1 : 1);
+        res.write(mustache.render(data.toString(), {
+          'objectUser': res.locals.user,
+          'objectComments': {
+            'arrayComments': sortedComments,
+            'booleanEmpty': sortedComments.length != 0
+          }
+        }));
+        
+        res.end();
+      });
+    }
   });
 });
 
