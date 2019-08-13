@@ -65,7 +65,7 @@ app.use(bodyParser.json());
 
 // Express Session Middleware
 app.use(session({
-  secret: 'keyboard cat',
+  secret: process.env.EXPRESS_SESSION_SECRET,
   resave: true,
   saveUninitialized: true
 }));
