@@ -7,6 +7,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 const mustache = require('mustache');
+const moment = require('moment');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -16,6 +17,7 @@ ENV.config();
 
 // Bring in models
 let User = require('./models/user');
+let Comment = require('./models/comment');
 
 // Passport config
 passport.use(new LocalStrategy(
@@ -189,6 +191,30 @@ app.get('/plated-desserts', (req, res) => {
 
   res.end();
   });
+});
+
+app.post('/plated-desserts', [
+  check('postContent')
+    .isLength({ min: 1 }).withMessage('You must enter something in the comment field.')
+], (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    } else {
+        let newComment = new Comment();
+        
+        newComment.username = req.user.username.split('@')[0];
+        newComment.timestamp = moment();
+        newComment.comment = req.body.postContent;
+
+        newComment.save((err) => {
+          if(err){
+            console.log(err);
+          } else {
+            res.redirect('back');
+          }
+        });
+    }
 });
 
 

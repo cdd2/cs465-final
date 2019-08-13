@@ -7,7 +7,7 @@ html, body {
 .wrapper {
   box-sizing: border-box;
   position: relative;
-  padding-bottom: 1em; /* Height of footer */
+  padding-bottom: 200px;
   min-height: 100%;
 }
 
