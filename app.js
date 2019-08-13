@@ -3,6 +3,7 @@
 // Imports
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
@@ -47,7 +48,9 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  done(err, user);
+  User.findById(id, function(err, user) {
+    done(err, user);    
+  });
 });
 
 // Init App
@@ -60,9 +63,22 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Passport middleware
+// Express Session Middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.get('*', (req, res, next) => {
+  res.locals.user = req.user || null;
+  console.log(req.user);
+  next();
+});
 
 // Connect to mongodb
 const mongoose = require('mongoose');
