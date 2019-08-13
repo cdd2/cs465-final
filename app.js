@@ -6,6 +6,8 @@ const path = require('path');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
+const mustache = require('mustache');
+const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -19,23 +21,17 @@ let User = require('./models/user');
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function (err, user) {
-      console.log("Verification function called");
       if (err) { return done(err); }
-      console.log("No err");
       if (!user) { 
-          console.log("No user");
           return done(null, false, { message: 'No user found' }); 
       }
       
       bcrypt.compare(password, user.password, function(err, isMatch) {
           if(err) throw err;
-          console.log("No pass error");
 
           if(isMatch) {
-              console.log("Pass match");
               return done(null, user);
           } else {
-              console.log("Pass no match");
               return done(null, false); 
           }
       });
@@ -76,7 +72,6 @@ app.use(passport.session());
 
 app.get('*', (req, res, next) => {
   res.locals.user = req.user || null;
-  console.log(req.user);
   next();
 });
 
@@ -96,7 +91,17 @@ db.on('error', (err) => {
 
 // Add Routes
 app.get('/', (req, res) => {
-  res.sendFile('home.html', {root: path.join(__dirname, './HtmlFiles')});
+  fs.readFile('./HtmlFiles/home.html', function(err, data) {
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
+
+    res.write(mustache.render(data.toString(), {
+      'objectUser': res.locals.user
+    }));
+
+  res.end();
+  });
 });
 
 app.get('/register', (req, res) => {
@@ -154,11 +159,31 @@ app.post('/login', (req, res, next) => {
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile('about.html', {root: path.join(__dirname, './HtmlFiles')});
+  fs.readFile('./HtmlFiles/about.html', function(err, data) {
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
+
+    res.write(mustache.render(data.toString(), {
+      'objectUser': res.locals.user
+    }));
+
+  res.end();
+  });
 });
 
 app.get('/plated-desserts', (req, res) => {
-  res.sendFile('plated-desserts.html', {root: path.join(__dirname, './HtmlFiles')});
+  fs.readFile('./HtmlFiles/plated-desserts.html', function(err, data) {
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
+
+    res.write(mustache.render(data.toString(), {
+      'objectUser': res.locals.user
+    }));
+
+  res.end();
+  });
 });
 
 

@@ -67,7 +67,7 @@
                     </li>
                 </ul>
 
-                <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Sign in</a>
+                <a id="login" class="btn btn-outline-success my-2 my-sm-0" href="/login">Sign in</a>
             </div>
         </nav>
         <!-- Nav Bar -->
@@ -152,4 +152,14 @@
         <!-- Footer -->
     </div>
 </body>
+
+<script id="toggleLoginButton" type="text/javascript">
+    const loggedIn = !('${{{ objectUser.username }}}' === '$');
+    console.log(loggedIn);
+    console.log('${{{ objectUser.username }}}');
+    if(loggedIn) {
+        $('#login').text('Log out');
+    }
+</script>
+
 </html>

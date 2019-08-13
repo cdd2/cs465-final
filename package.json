@@ -12,9 +12,11 @@
     "init": "^0.1.2",
     "mongodb": "^3.3.0-beta2",
     "mongoose": "^5.6.9",
+    "mustache": "^3.0.1",
     "npm": "^6.10.3",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.4"
   },
   "devDependencies": {
     "dotenv": "^8.0.0"
