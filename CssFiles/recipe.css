@@ -53,3 +53,7 @@ h1 {
 p {
     font-size: 19px;
 }
+
+.newPost {
+    padding: 1.5em 0em 0em 0em;
+}

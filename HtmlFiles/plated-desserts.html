@@ -162,12 +162,7 @@
                         </div>
                     </div>
 
-                    <div class="newPost">
-                        <form method="post">
-                            <label for="postContent" class="sr-only">Comment</label><textarea name="postContent" id="postContent" cols="100" rows="3" class="autoExpand form-control"></textarea>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-                        </form>
-                    </div>
+                    <div class="newPost" id="newPost"></div>
                 </div>
             </div>
             <!-- Comment Section -->
@@ -186,11 +181,19 @@
     </div>
 </body>
 
-<script id="toggleLoginButton" type="text/javascript">
+<script id="loggedIn" type="text/javascript">
     const loggedIn = !('{{{ objectUser.username }}}' === '');
     if(loggedIn) {
+        // Change 'Sign in' button to 'Log out'
         $('#login').text('Log out');
         $('#login').attr('href', '/logout');
+
+        // Add form to make new post
+        $('#newPost').html('' +
+            '<form method="post">' +
+                '<label for="postContent" class="sr-only">Comment</label><textarea name="postContent" id="postContent" cols="100" rows="3" class="autoExpand form-control"></textarea>' +
+                '<button class="btn btn-sm btn-secondary" type="submit">Post Comment</button>' +
+            '</form>');
     }
 </script>
 
