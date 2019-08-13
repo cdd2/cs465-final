@@ -85,11 +85,10 @@
 </body>
 
 <script id="toggleLoginButton" type="text/javascript">
-    const loggedIn = !('{{{ objectUser.username }}}' === '$');
-    console.log(loggedIn);
-    console.log('{{{ objectUser.username }}}');
+    const loggedIn = !('{{{ objectUser.username }}}' === '');
     if(loggedIn) {
         $('#login').text('Log out');
+        $('#login').attr('href', '/logout');
     }
 </script>
 
