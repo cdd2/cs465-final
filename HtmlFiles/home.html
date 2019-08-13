@@ -16,144 +16,144 @@
     <title>Home</title>
 </head>
 <body>
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">
-            <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/62737433-9fa7-466d-bcfb-1645b65b1385_m.png">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="wrapper">
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/62737433-9fa7-466d-bcfb-1645b65b1385_m.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        Recipes
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Recipes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/amuse-bouche">Amuse-Bouche</a>
+                            <a class="dropdown-item" href="/appetizers">Appetizers</a>
+                            <a class="dropdown-item" href="/plated-desserts">Plated Desserts</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link fas fa-search" style="font-size: 80%; padding: 18px 0px 0px 6px"></a>
+                    </li>
+                </ul>
+
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+
+                <ul class="inline navbar-nav mr-right mr-2">
+                    <li>
+                        <a class="fab fa-facebook-f mr-2" href="https://www.facebook.com/BrunosKitchen"></a>
+                    </li>
+                    <li>
+                        <a class="fab fa-twitter mr-2" href="https://www.twitter.com/brunoalbouze"></a>
+                    </li>
+                    <li>
+                        <a class="fab fa-youtube mr-2" href="https://www.youtube.com/user/BrunoAlbouze/videos"></a>
+                    </li>
+                    <li>
+                        <a class="fab fa-pinterest-p mr-2" href="https://www.pinterest.com/brunoalbouze"></a>
+                    </li>
+                    <li>
+                        <a class="fab fa-instagram mr-2" href="https://instagram.com/brunoalbouze"></a>
+                    </li>
+                </ul>
+
+                <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Sign in</a>
+            </div>
+        </nav>
+        <!-- Nav Bar -->
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <div class="container text-center text-white">
+                <h1>Welcome to Bruno Albouze's Kitchen!</h1>
+                <h5>Mouseover to see categories</h5>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" style="padding: 0px 15px 0px 0px">
+                    <a href="/plated-desserts">
+                        <img src="https://d3ciwvs59ifrt8.cloudfront.net/39debde2-77c3-41c8-b2e8-54951325ad74/a85c0f48-6b7e-4314-be23-6c50dc8a0269_l.jpg" alt="Plated Desserts" class="img-fluid">
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/amuse-bouche">Amuse-Bouche</a>
-                        <a class="dropdown-item" href="/appetizers">Appetizers</a>
-                        <a class="dropdown-item" href="/plated-desserts">Plated Desserts</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link fas fa-search" style="font-size: 80%; padding: 18px 0px 0px 6px"></a>
-                </li>
-            </ul>
-
-            <!-- <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> -->
-
-            <ul class="inline navbar-nav mr-right mr-2">
-                <li>
-                    <a class="fab fa-facebook-f mr-2" href="https://www.facebook.com/BrunosKitchen"></a>
-                </li>
-                <li>
-                    <a class="fab fa-twitter mr-2" href="https://www.twitter.com/brunoalbouze"></a>
-                </li>
-                <li>
-                    <a class="fab fa-youtube mr-2" href="https://www.youtube.com/user/BrunoAlbouze/videos"></a>
-                </li>
-                <li>
-                    <a class="fab fa-pinterest-p mr-2" href="https://www.pinterest.com/brunoalbouze"></a>
-                </li>
-                <li>
-                    <a class="fab fa-instagram mr-2" href="https://instagram.com/brunoalbouze"></a>
-                </li>
-            </ul>
-
-            <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Sign in</a>
-        </div>
-    </nav>
-    <!-- Nav Bar -->
-
-    <!-- Jumbotron -->
-    <div class="jumbotron">
-        <div class="container text-center text-white">
-            <h1>Welcome to Bruno Albouze's Kitchen!</h1>
-            <h5>Mouseover to see categories</h5>
-        </div>
-    </div>
-    <!-- Jumbotron -->
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4" style="padding: 0px 15px 0px 0px">
-                <a href="/plated-desserts">
-                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/39debde2-77c3-41c8-b2e8-54951325ad74/a85c0f48-6b7e-4314-be23-6c50dc8a0269_l.jpg" alt="Plated Desserts" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-md-8" style="padding: 0px">
-                <div class="row">
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/f6e2cb2f-b2eb-4f26-b8d1-9a84441c5f9b_s.jpg" alt="Amuse-Bouche" class="img-fluid">
-                    </div>
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/e5089c16-394e-4c35-9049-8fd7bbb2cfda_s.jpg" alt="Appetizers" class="img-fluid">
-                    </div>
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://d3ciwvs59ifrt8.cloudfront.net/6a0e6ca1-2df9-4d71-939f-2d1d60a16726/9d0f74f6-9d4b-4f86-a4c2-239e92c4d601_s.jpg" alt="Salads" class="img-fluid">
-                    </div>
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/2f538cf5-d8d7-4cd2-b0b2-a1122d17f948_s.jpg" alt="Entrees" class="img-fluid">
-                    </div>
                 </div>
-                <div class="row" style="padding: 0px">
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://d3ciwvs59ifrt8.cloudfront.net/7ba8800b-91c2-4eb1-9451-4dce61fbd96f/d705d2f3-b66d-4460-8f74-d93bc9ca7282_s.jpeg" alt="Vegetarians" class="img-fluid">
+                <div class="col-md-8" style="padding: 0px">
+                    <div class="row">
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/f6e2cb2f-b2eb-4f26-b8d1-9a84441c5f9b_s.jpg" alt="Amuse-Bouche" class="img-fluid">
+                        </div>
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/e5089c16-394e-4c35-9049-8fd7bbb2cfda_s.jpg" alt="Appetizers" class="img-fluid">
+                        </div>
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://d3ciwvs59ifrt8.cloudfront.net/6a0e6ca1-2df9-4d71-939f-2d1d60a16726/9d0f74f6-9d4b-4f86-a4c2-239e92c4d601_s.jpg" alt="Salads" class="img-fluid">
+                        </div>
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/2f538cf5-d8d7-4cd2-b0b2-a1122d17f948_s.jpg" alt="Entrees" class="img-fluid">
+                        </div>
                     </div>
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/37c6b8cc-2ca8-4fa1-ba2c-4a87e5fd435a_s.jpg" alt="Side Dishes" class="img-fluid">
-                    </div>
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://d3ciwvs59ifrt8.cloudfront.net/bb7744c3-56c8-42dc-ae90-0b581fa579e3/e27a28fe-eff8-4f72-a866-d26ba044e747_s.jpeg" alt="Seafood" class="img-fluid">
-                    </div>
-                    <div class="col-md-3" style="padding: 0px">
-                        <img src="https://dcf54aygx3v5e.cloudfront.net/1f5e1e95-cbba-47f6-bc97-76715751cd0c/12e3cb0a-bae5-40d0-b01d-12e08b5aadff_s.jpg" alt="Soups and Stocks" class="img-fluid">
+                    <div class="row" style="padding: 0px">
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://d3ciwvs59ifrt8.cloudfront.net/7ba8800b-91c2-4eb1-9451-4dce61fbd96f/d705d2f3-b66d-4460-8f74-d93bc9ca7282_s.jpeg" alt="Vegetarians" class="img-fluid">
+                        </div>
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://dcf54aygx3v5e.cloudfront.net/35c5f64e-d137-45e8-a1e4-83d0cf1e97fb/37c6b8cc-2ca8-4fa1-ba2c-4a87e5fd435a_s.jpg" alt="Side Dishes" class="img-fluid">
+                        </div>
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://d3ciwvs59ifrt8.cloudfront.net/bb7744c3-56c8-42dc-ae90-0b581fa579e3/e27a28fe-eff8-4f72-a866-d26ba044e747_s.jpeg" alt="Seafood" class="img-fluid">
+                        </div>
+                        <div class="col-md-3" style="padding: 0px">
+                            <img src="https://dcf54aygx3v5e.cloudfront.net/1f5e1e95-cbba-47f6-bc97-76715751cd0c/12e3cb0a-bae5-40d0-b01d-12e08b5aadff_s.jpg" alt="Soups and Stocks" class="img-fluid">
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-2" style="padding: 0px">
+                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/7d9b9797-3847-426d-ad67-3b8cb8c0c4da/571df8e6-1471-413d-b42a-9b89bb1b1cf7_h.png" alt="Barbecue and Grilling" class="img-fluid">
+                </div>
+                <div class="col-md-2" style="padding: 0px">
+                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/7d9b9797-3847-426d-ad67-3b8cb8c0c4da/9f4d9dd5-1960-4bad-b9f8-039c129fc964_h.png" alt="Pizza" class="img-fluid">
+                </div>
+                <div class="col-md-2" style="padding: 0px">
+                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/ce8886ff-e288-45d3-ae15-d5743fe8b8d7/cc100d32-e6ed-4f00-a1af-d9ec55acab73_h.jpeg" alt="Sandwich" class="img-fluid">
+                </div>
+                <div class="col-md-2" style="padding: 0px">
+                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/548db861-a929-4487-937c-9484194b9c46/7b162c15-166e-462f-85d7-6c3ccb8c3cb2_h.jpeg" alt="Bread" class="img-fluid">
+                </div>
+                <div class="col-md-2" style="padding: 0px">
+                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/d39ec2f3-a01b-47d5-b1a5-db1d4dd7647a/116cbdf9-b5e9-4e94-b10b-0015fe45a71f_h.png" alt="Breakfast & Brunch" class="img-fluid">
+                </div>
+                <div class="col-md-2" style="padding: 0px">
+                    <img src="https://d3ciwvs59ifrt8.cloudfront.net/7d9b9797-3847-426d-ad67-3b8cb8c0c4da/0125c4d9-1889-4a73-808a-3ba7968eaa98_h.jpg" alt="Pastries" class="img-fluid">
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-2" style="padding: 0px">
-                <img src="https://d3ciwvs59ifrt8.cloudfront.net/7d9b9797-3847-426d-ad67-3b8cb8c0c4da/571df8e6-1471-413d-b42a-9b89bb1b1cf7_h.png" alt="Barbecue and Grilling" class="img-fluid">
+        <!-- Footer -->
+        <footer id="footer" class="py-4 bg-dark text-white">
+            <div class="container text-center">
+                <p>This website is based loosely off of this linked 
+                    <a href="https://www.brunoskitchen.net">webpage.</a>
+                </p>
             </div>
-            <div class="col-md-2" style="padding: 0px">
-                <img src="https://d3ciwvs59ifrt8.cloudfront.net/7d9b9797-3847-426d-ad67-3b8cb8c0c4da/9f4d9dd5-1960-4bad-b9f8-039c129fc964_h.png" alt="Pizza" class="img-fluid">
-            </div>
-            <div class="col-md-2" style="padding: 0px">
-                <img src="https://d3ciwvs59ifrt8.cloudfront.net/ce8886ff-e288-45d3-ae15-d5743fe8b8d7/cc100d32-e6ed-4f00-a1af-d9ec55acab73_h.jpeg" alt="Sandwich" class="img-fluid">
-            </div>
-            <div class="col-md-2" style="padding: 0px">
-                <img src="https://d3ciwvs59ifrt8.cloudfront.net/548db861-a929-4487-937c-9484194b9c46/7b162c15-166e-462f-85d7-6c3ccb8c3cb2_h.jpeg" alt="Bread" class="img-fluid">
-            </div>
-            <div class="col-md-2" style="padding: 0px">
-                <img src="https://d3ciwvs59ifrt8.cloudfront.net/d39ec2f3-a01b-47d5-b1a5-db1d4dd7647a/116cbdf9-b5e9-4e94-b10b-0015fe45a71f_h.png" alt="Breakfast & Brunch" class="img-fluid">
-            </div>
-            <div class="col-md-2" style="padding: 0px">
-                <img src="https://d3ciwvs59ifrt8.cloudfront.net/7d9b9797-3847-426d-ad67-3b8cb8c0c4da/0125c4d9-1889-4a73-808a-3ba7968eaa98_h.jpg" alt="Pastries" class="img-fluid">
-            </div>
-        </div>
+        </footer>
+        <!-- Footer -->
     </div>
-
-    <!-- Footer -->
-    <footer id="footer" class="py-4 bg-dark text-white">
-        <div class="container text-center">
-            <p>This website is based loosely off of this linked 
-                <a href="https://www.brunoskitchen.net">webpage.</a>
-            </p>
-        </div>
-    </footer>
-    <!-- Footer -->
 </body>
 </html>
